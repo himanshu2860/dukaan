@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Bebas_Neue, Manrope } from "next/font/google";
 import "./globals.css";
 
-const bebas = Bebas_Neue({
+const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-bebas",
@@ -15,7 +15,7 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: "StyleHub",
-  description: "Multi Vendor Fashion Marketplace",
+  description: "A modern multi-vendor fashion marketplace",
 };
 
 export default function RootLayout({
@@ -25,7 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${bebas.variable} ${manrope.variable}`}>
+      <body
+        className={`${bebasNeue.variable} ${manrope.variable} font-body antialiased`}
+      >
         {children}
       </body>
     </html>
