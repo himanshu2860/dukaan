@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { Menu, Search, ShoppingBag, User, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
-
+import { usePathname } from "next/navigation";
 const navLinks = [
   {
     label: "New In",
@@ -26,13 +26,63 @@ const navLinks = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const pathname = usePathname();
   const headerRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLAnchorElement>(null);
   const desktopNavRef = useRef<HTMLElement>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLElement>(null);
 
+  useLayoutEffect(() => {
+    const header = headerRef.current;
+    const logo = logoRef.current;
+    const desktopNav = desktopNavRef.current;
+    const actions = actionsRef.current;
+
+    setMenuOpen(false);
+    document.body.style.overflow = "";
+
+    if (!header) return;
+
+    gsap.killTweensOf([header, logo, desktopNav?.children, actions?.children]);
+
+    gsap.set(header, {
+      yPercent: 0,
+      opacity: 1,
+      visibility: "visible",
+    });
+
+    gsap.set(logo, {
+      x: 0,
+      y: 0,
+      scale: 1,
+      rotate: 0,
+      opacity: 1,
+      visibility: "visible",
+    });
+
+    if (desktopNav) {
+      gsap.set(desktopNav.children, {
+        x: 0,
+        y: 0,
+        scale: 1,
+        rotate: 0,
+        opacity: 1,
+        visibility: "visible",
+      });
+    }
+
+    if (actions) {
+      gsap.set(actions.children, {
+        x: 0,
+        y: 0,
+        scale: 1,
+        rotate: 0,
+        opacity: 1,
+        visibility: "visible",
+      });
+    }
+  }, [pathname]);
   /*
    * Prevent body scrolling while the mobile menu is open.
    */
@@ -62,34 +112,52 @@ export default function Navbar() {
     });
 
     timeline
-      .from(header, {
-        yPercent: -100,
-        duration: 0.8,
-      })
-      .from(
+      .fromTo(
+        header,
+        {
+          yPercent: -100,
+        },
+        {
+          yPercent: 0,
+          duration: 0.8,
+        },
+      )
+      .fromTo(
         logo,
         {
           y: -15,
           opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
           duration: 0.55,
         },
         "-=0.35",
       )
-      .from(
+      .fromTo(
         desktopNav?.children ?? [],
         {
           y: -12,
           opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
           stagger: 0.08,
           duration: 0.45,
         },
         "-=0.35",
       )
-      .from(
+      .fromTo(
         actions?.children ?? [],
         {
           scale: 0.75,
           opacity: 0,
+        },
+        {
+          scale: 1,
+          opacity: 1,
           stagger: 0.07,
           duration: 0.45,
           ease: "back.out(1.7)",
@@ -179,7 +247,7 @@ export default function Navbar() {
       window.removeEventListener("scroll", handleScroll);
       gsap.killTweensOf(header);
     };
-  }, [menuOpen]);
+  }, [menuOpen, pathname]);
 
   /*
    * Animate the mobile menu items when it opens.
@@ -383,7 +451,7 @@ export default function Navbar() {
 
         <div
           ref={actionsRef}
-          className="relative z-[70] flex items-center gap-2"
+          className="relative z-[70] flex shrink-0 items-center gap-3"
         >
           <button
             type="button"
@@ -404,7 +472,12 @@ export default function Navbar() {
           >
             <User size={18} strokeWidth={1.8} />
           </Link>
-
+          <Link
+            href="/register"
+            className="hidden h-10 shrink-0 items-center justify-center rounded-full bg-ink px-5 text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:bg-accent lg:inline-flex"
+          >
+            Register
+          </Link>
           <Link
             href="/cart"
             className="relative hidden h-10 w-10 place-items-center rounded-full border border-black/10 text-ink transition-colors duration-300 hover:border-black hover:bg-ink hover:text-white lg:grid"
@@ -451,14 +524,14 @@ export default function Navbar() {
       <nav
         ref={mobileMenuRef}
         id="mobile-navigation"
-        className={`fixed inset-0 z-50 flex flex-col bg-page px-5 pb-8 pt-28 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] lg:hidden ${
+        className={`fixed inset-0 z-50 flex flex-col overflow-y-auto bg-page px-5 pb-8 pt-24 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] lg:hidden ${
           menuOpen
             ? "visible translate-y-0 opacity-100"
             : "invisible -translate-y-full opacity-0"
         }`}
         aria-label="Mobile navigation"
       >
-        <div className="flex flex-1 flex-col">
+        <div className="flex flex-col">
           {navLinks.map((link, index) => (
             <Link
               key={link.label}
@@ -515,13 +588,11 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-3">
+        <div className="mt-8 grid shrink-0 grid-cols-2 gap-3 pb-4">
           <Link
             data-mobile-account
             href="/login"
             onClick={closeMenu}
-            onMouseEnter={handleIconEnter}
-            onMouseLeave={handleIconLeave}
             className="flex min-h-14 items-center justify-center rounded-full border border-black/15 text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-ink"
           >
             Login
@@ -529,13 +600,11 @@ export default function Navbar() {
 
           <Link
             data-mobile-account
-            href="/cart"
+            href="/register"
             onClick={closeMenu}
-            onMouseEnter={handleIconEnter}
-            onMouseLeave={handleIconLeave}
             className="flex min-h-14 items-center justify-center rounded-full bg-ink text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-white"
           >
-            Cart · 0
+            Register
           </Link>
         </div>
       </nav>
