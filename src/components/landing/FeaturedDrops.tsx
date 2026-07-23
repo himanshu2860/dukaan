@@ -190,12 +190,12 @@ export default function FeaturedDrops() {
             <div
               data-drop-content
               className="
-                absolute left-[6vw] top-1/2 z-[5]
-                w-[min(620px,48vw)] -translate-y-1/2
-                max-lg:left-[22px] max-lg:w-[min(680px,calc(100vw-44px))]
-                max-sm:bottom-[90px] max-sm:left-[18px] max-sm:right-[18px]
-                max-sm:top-auto max-sm:w-auto max-sm:translate-y-0
-              "
+    absolute left-[6vw] top-1/2 z-[5]
+    w-[min(700px,52vw)] -translate-y-[48%]
+    max-lg:left-[22px] max-lg:w-[min(680px,calc(100vw-44px))]
+    max-sm:bottom-[100px] max-sm:left-[18px] max-sm:right-[18px]
+    max-sm:top-auto max-sm:w-auto max-sm:translate-y-0
+  "
             >
               <p className="mb-6 text-[0.67rem] font-extrabold uppercase tracking-[0.18em] text-white/65">
                 {drop.label}
@@ -203,18 +203,19 @@ export default function FeaturedDrops() {
 
               <h2
                 className="
-                  m-0 font-display text-[clamp(6rem,11vw,13rem)]
-                  font-normal uppercase leading-[0.72]
-                  tracking-[-0.045em]
-                  max-lg:text-[clamp(5rem,16vw,9rem)]
-                  max-sm:text-[clamp(4.5rem,20vw,7rem)]
-                "
+    m-0 font-display
+    text-[clamp(5.5rem,10vw,11.5rem)]
+    font-normal uppercase leading-[0.76]
+    tracking-[-0.045em]
+    max-lg:text-[clamp(5rem,14vw,8rem)]
+    max-sm:text-[clamp(4rem,18vw,6.5rem)]
+  "
               >
                 {drop.title}
 
                 <span
                   className="
-                    ml-[clamp(35px,5vw,90px)] block text-accent
+                    ml-[clamp(35px,5vw,90px)] mt-2 block text-accent
                     max-sm:ml-0
                   "
                 >
@@ -224,10 +225,10 @@ export default function FeaturedDrops() {
 
               <p
                 className="
-                  my-[35px] max-w-[460px]
-                  text-[0.95rem] leading-[1.8] text-white/65
-                  max-sm:my-6
-                "
+    my-9 max-w-[500px]
+    text-[1rem] leading-[1.8] text-white/65
+    max-sm:my-6
+  "
               >
                 {drop.description}
               </p>
@@ -261,11 +262,11 @@ export default function FeaturedDrops() {
 
             <div
               className="
-                absolute bottom-[38px] left-[5vw] right-[5vw] z-[5]
-                grid grid-cols-[auto_1fr_auto] items-center gap-[18px]
-                max-lg:left-[22px] max-lg:right-[22px]
-                max-sm:bottom-[30px] max-sm:left-[18px] max-sm:right-[18px]
-              "
+    absolute bottom-[22px] left-[5vw] right-[5vw] z-[5]
+    grid grid-cols-[auto_1fr_auto] items-center gap-[18px]
+    max-lg:left-[22px] max-lg:right-[22px]
+    max-sm:bottom-[22px] max-sm:left-[18px] max-sm:right-[18px]
+  "
             >
               <span className="text-[0.62rem] font-extrabold tracking-[0.14em]">
                 {drop.number}
