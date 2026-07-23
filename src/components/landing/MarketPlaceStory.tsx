@@ -536,8 +536,8 @@ export default function MarketplaceStory() {
                 </div>
 
                 <div
-                  className={`grid min-h-[720px] grid-cols-[1.15fr_0.85fr] overflow-hidden bg-[#181818] max-lg:min-h-0 max-lg:grid-cols-1 ${
-                    isRight ? "lg:grid-cols-[0.85fr_1.15fr]" : ""
+                  className={`grid min-h-[720px] grid-cols-2 overflow-hidden bg-[#181818] max-lg:min-h-0 max-lg:grid-cols-1 ${
+                    isRight ? "lg:grid-cols-2" : ""
                   }`}
                 >
                   {/* Image */}
@@ -573,7 +573,7 @@ export default function MarketplaceStory() {
 
                   {/* Content */}
                   <div
-                    className={`relative flex min-h-[720px] flex-col justify-between overflow-hidden p-[clamp(28px,5vw,80px)] max-lg:min-h-[560px] max-md:min-h-[500px] ${
+                    className={`relative flex min-h-[720px] flex-col justify-between overflow-hidden p-[clamp(28px,4vw,60px)] max-lg:min-h-[560px] max-md:min-h-[500px] ${
                       isRight ? "lg:order-1" : ""
                     }`}
                   >
@@ -615,7 +615,13 @@ export default function MarketplaceStory() {
 
                       <h3
                         data-story-content-item
-                        className="font-display text-[clamp(5rem,8vw,9rem)] uppercase leading-[0.73] tracking-[-0.045em]"
+                        className="
+    font-display uppercase
+    text-[clamp(3.5rem,5.2vw,6.5rem)]
+    leading-[0.76]
+    tracking-[-0.035em]
+    max-sm:text-[clamp(3.5rem,16vw,5.5rem)]
+  "
                       >
                         {collection.title}
 
