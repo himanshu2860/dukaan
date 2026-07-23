@@ -230,7 +230,7 @@ export default function Testimonials() {
                   <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-neutral-800">
                     <Image
                       data-testimonial-image
-                      src={testimonial.image}
+                      src={"/images/hero-fashion-2.png"}
                       alt={testimonial.name}
                       fill
                       sizes="64px"

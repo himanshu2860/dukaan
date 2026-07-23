@@ -549,7 +549,7 @@ export default function MarketplaceStory() {
                   >
                     <Image
                       data-story-image
-                      src={collection.image}
+                      src={"/images/hero-fashion.png"}
                       alt={`${collection.title} ${collection.highlightedTitle} collection`}
                       fill
                       sizes="(max-width: 1024px) 100vw, 58vw"
@@ -561,10 +561,7 @@ export default function MarketplaceStory() {
 
                     <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.35),transparent_55%)]" />
 
-                    <div
-                      data-story-image-cover
-                      className="absolute inset-0 z-[2] bg-accent"
-                    />
+                    <div data-story-image-cover className=" z-[2] bg-accent" />
 
                     <p className="absolute bottom-7 left-7 z-[3] text-[0.58rem] font-extrabold uppercase tracking-[0.2em] text-white/65">
                       StyleHub editorial / {collection.number}

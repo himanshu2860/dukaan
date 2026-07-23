@@ -272,7 +272,7 @@ export default function FeaturedStores() {
               <div className="relative aspect-[4/3] overflow-hidden bg-neutral-900">
                 <Image
                   data-store-image
-                  src={store.banner}
+                  src={"/images/hero-fashion.png"}
                   alt={`${store.name} store`}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

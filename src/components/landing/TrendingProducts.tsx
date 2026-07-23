@@ -237,7 +237,7 @@ export default function TrendingProducts() {
 
                 <Image
                   data-product-image
-                  src={product.image}
+                  src={"/images/hero-fashion-2.png"}
                   alt={product.name}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

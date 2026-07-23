@@ -155,7 +155,7 @@ export default function FeaturedDrops() {
             <div className="absolute inset-0 overflow-hidden bg-[#252525]">
               <Image
                 data-drop-image
-                src={drop.image}
+                src={"/images/hero-fashion.png"}
                 alt={`${drop.title} ${drop.highlightedTitle} fashion collection`}
                 fill
                 sizes="100vw"
@@ -168,7 +168,7 @@ export default function FeaturedDrops() {
               <div
                 className="
                   absolute inset-0
-                  bg-[linear-gradient(90deg,rgba(0,0,0,0.78)_0%,rgba(0,0,0,0.48)_38%,rgba(0,0,0,0.08)_72%),linear-gradient(to_top,rgba(0,0,0,0.55),transparent_45%)]
+                 bg-[linear-gradient(90deg,rgba(0,0,0,0.58)_0%,rgba(0,0,0,0.22)_40%,rgba(0,0,0,0)_75%),linear-gradient(to_top,rgba(0,0,0,0.42),transparent_50%)]
                   max-lg:bg-[linear-gradient(90deg,rgba(0,0,0,0.82),rgba(0,0,0,0.25)),linear-gradient(to_top,rgba(0,0,0,0.62),transparent_55%)]
                 "
               />
@@ -191,7 +191,7 @@ export default function FeaturedDrops() {
               data-drop-content
               className="
     absolute left-[6vw] top-1/2 z-[5]
-    w-[min(700px,52vw)] -translate-y-[48%]
+    w-[min(900px,60vw)] -translate-y-[48%]
     max-lg:left-[22px] max-lg:w-[min(680px,calc(100vw-44px))]
     max-sm:bottom-[100px] max-sm:left-[18px] max-sm:right-[18px]
     max-sm:top-auto max-sm:w-auto max-sm:translate-y-0

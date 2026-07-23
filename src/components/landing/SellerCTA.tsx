@@ -201,7 +201,7 @@ export default function SellerCTA() {
           >
             <Image
               data-seller-image
-              src="/images/seller-cta.png"
+              src="/images/hero-fashion.png"
               alt="Independent fashion seller preparing clothing products"
               fill
               sizes="(max-width: 1024px) 100vw, 55vw"
